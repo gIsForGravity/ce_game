@@ -20,7 +20,7 @@ bool tick(void) {
 }
 
 void render(void) {
-    dbg_draw_polygon(map_testmap_points, map_testmap_points_length);
+    dbg_draw_polygon_outline(map_testmap_points, map_testmap_points_length);
 }
 
 void cleanup_gfx(void) {
