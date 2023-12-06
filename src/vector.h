@@ -9,6 +9,8 @@ typedef struct {
     float y;
 } vec2_t;
 
+#define VEC(X, Y) ((vec2_t) { .x = (X), .y = (Y) })
+
 static inline void vec2_mult(vec2_t *const vec, const float by) {
     vec->x *= by;
     vec->y *= by;

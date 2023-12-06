@@ -1,18 +1,45 @@
-#include <ti/screen.h>
-#include <ti/getcsc.h>
-#include <stdlib.h>
+#include <stdbool.h>
+#include <graphx.h>
+#include <keypadc.h>
+#include "draw.h"
+#include "maps/testmap.h"
+
+void setup(void) {
+
+}
+
+void setup_gfx(void) {
+    gfx_Begin();
+    gfx_SetDrawBuffer();
+}
+
+bool tick(void) {
+    kb_Scan();
+
+    return !(kb_Data[6] & kb_Clear);
+}
+
+void render(void) {
+    dbg_draw_polygon(map_testmap_points, map_testmap_points_length);
+}
+
+void cleanup_gfx(void) {
+    gfx_End();
+}
 
 /* Main function, called first */
 int main(void)
 {
-    /* Clear the homescreen */
-    os_ClrHome();
+    setup();
+    setup_gfx();
 
-    /* Print a string */
-    os_PutStrFull("Hello, World.");
+    while (tick()) {
+        render();
+        gfx_SwapDraw();
+        gfx_Wait();
+    }
 
-    /* Waits for a key */
-    while (!os_GetCSC());
+    cleanup_gfx();
 
     /* Return 0 for success */
     return 0;
