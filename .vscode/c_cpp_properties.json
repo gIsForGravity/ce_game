@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        },
+        {
+            "name": "TiCE",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "~/CEdev/include"
+            ],
+            "defines": [],
+            "compilerPath": "/home/gtant/CEdev/bin/ez80-clang",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-clang-arm"
+        }
+    ],
+    "version": 4
+}
