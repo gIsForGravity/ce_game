@@ -16,9 +16,19 @@ static inline void vec2_mult(vec2_t *const vec, const float by) {
     vec->y *= by;
 }
 
+static inline void vec2_div(vec2_t *const vec, const float by) {
+    vec->x /= by;
+    vec->y /= by;
+}
+
 static inline void vec2_add(vec2_t *const vec, const vec2_t *const with) {
     vec->x += with->x;
     vec->y += with->y;
+}
+
+static inline void vec2_subtract(vec2_t *const vec, const vec2_t *const with) {
+    vec->x -= with->x;
+    vec->y -= with->y;
 }
 
 static inline float vec2_dot(const vec2_t *const first, const vec2_t *const second) {
