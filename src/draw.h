@@ -8,6 +8,7 @@ extern vec2_t draw_cam_pos;
 
 void draw_line(const vec2_t *const pos1, const vec2_t *const pos2);
 void draw_polygon_outline(const vec2_t *const points, const size_t length);
+void draw_polygon_outline_at(const vec2_t *const points, const size_t length, const vec2_t *const pos);
 
 #ifndef NDEBUG
 #define dbg_draw_line(pos1, pos2) (draw_line(pos1, pos2))

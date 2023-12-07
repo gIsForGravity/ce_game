@@ -17,10 +17,16 @@ void draw_line(const vec2_t *const pos1, const vec2_t *const pos2) {
     gfx_Line(newpos1.x, newpos1.y, newpos2.x, newpos2.y);
 };
 
-void draw_polygon_outline(const vec2_t *const points, const size_t length) {
-    for (size_t i = 0; i < length - 1; i++) {
-        draw_line(points + i, points + i + 1);
+void draw_polygon_outline_at(const vec2_t *const points, const size_t length, const vec2_t *const pos) {
+    for (size_t i = 0; i < length; i++) {
+        vec2_t first = points[i];
+        vec2_t second = points[(i + 1) % length];
+        vec2_add(&first, pos);
+        vec2_add(&second, pos);
+        draw_line(&first, &second);
     }
+}
 
-    draw_line(points + 0, points + length - 1);
+void draw_polygon_outline(const vec2_t *const points, const size_t length) {
+    draw_polygon_outline_at(points, length, &(vec2_t) {0});
 }
